@@ -1,0 +1,47 @@
+/*  Resets  */
+h1, h2, h3, h4, h5, h6, button {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 24px;
+    font-weight: 400;
+}
+p, a, label, input, span, div {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+html {
+    overflow: hidden;
+}
+
+/*  Helpers  */
+.center-content {
+    
+}
+
+/*  Icon styles  */
+.i {
+    height: 25px;
+    width: 100%;
+    display: block;
+    background-size: 25px 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+i.i-back {
+    background-image: url('/static/icons/back.svg');
+}
+i.i-info {
+    background-image: url('/static/icons/info.svg'); 
+}
+i.i-about {
+    background-image: url('/static/icons/about.svg'); 
+}
+i.i-contact {
+    background-image: url('/static/icons/contact.svg'); 
+}
+i.i-home {
+    background-image: url('/static/icons/home.svg'); 
+}
+i.i-portfolio {
+    background-image: url('/static/icons/portfolio.svg'); 
+}

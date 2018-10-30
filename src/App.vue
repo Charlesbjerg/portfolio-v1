@@ -6,15 +6,15 @@
       </section>
       <section class="main">
         <router-link class="link" to="/"><i class="i i-home"></i>Home</router-link>
-        <router-link class="link" to="/"><i class="i i-about"></i>About</router-link>
-        <router-link class="link" to="/"><i class="i i-portfolio"></i>My Work</router-link>
-        <router-link class="link" to="/"><i class="i i-contact"></i>Contact</router-link>
+        <router-link class="link" to="/about"><i class="i i-about"></i>About</router-link>
+        <router-link class="link" to="/portfolio"><i class="i i-portfolio"></i>My Work</router-link>
+        <router-link class="link" to="/contact"><i class="i i-contact"></i>Contact</router-link>
       </section>
       <section class="bottom">
         <span><i class="i i-info"></i></span>
       </section>
     </nav>
-    <main class="container center-content">
+    <main>
       <router-view/>
     </main>
   </div>
@@ -33,7 +33,6 @@ export default {
   position: relative;
   height: 100vh;
   width: calc(100vw - 85px);
-  padding: 2em;
 }
 #app nav {
   display: flex;
@@ -87,5 +86,8 @@ export default {
   color: #000;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 1em;
+}
+main {
+  height: 100%;
 }
 </style>

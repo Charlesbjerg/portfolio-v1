@@ -1,9 +1,9 @@
 <template>
-    <div class="columns center-content">
-        <div class="column animated-item center-content">
+    <div class="row center-content">
+        <div class="col-sm-6 animated-item center-content">
             <p>Animated thing here</p>
         </div>
-        <div class="column main-content">
+        <div class="col-md-6 main-content">
             <h1>Hey, I'm Charlie. A web developer from Gloucestershire</h1>
             <router-link to='/about'>Find out all about me -></router-link>
         </div>

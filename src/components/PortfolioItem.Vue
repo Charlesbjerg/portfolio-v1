@@ -1,6 +1,6 @@
 <template>
-    <section class="columns">
-        <div class="column main-content">
+    <section class="row">
+        <div class="col-lg-10 col-sm-9 main-content">
             <h1>Portfolio Item</h1>
             <div class="breadcrumbs">
                 <router-link to="/">Post</router-link>
@@ -21,11 +21,11 @@
                 </div>
             </article>
         </div>
-        <div class="column is-2 sidebar">
+        <div class="col-lg-2 col-sm-3 sidebar">
             <h3>Project links</h3>
-            <a href="#">View on Codepen</a>
-            <a href="#">View Project</a>
-            <a href="#">View on Github</a>
+            <a href="#" class="codepen-link"><i class="fab fa-codepen"></i>View on Codepen</a>
+            <a href="#" class="web-link"><i class="fas fa-link"></i>View Project</a>
+            <a href="#" class="github-link"><i class="fab fa-github-square"></i>View on Github</a>
         </div>
     </section>
 </template>
@@ -63,7 +63,7 @@ export default {
     .main-content article .article-content {
         background-color: #fff;
         color: #000;
-        padding: 1em;
+        padding: 1em 2em;
         overflow-y: scroll;
         max-height: 450px;
     }
@@ -83,18 +83,53 @@ export default {
     }
     .sidebar h3 {
         text-decoration: underline;
-        margin-bottom: 0.5em;
+        margin-bottom: 1em;
     }
     .sidebar a {
         font-size: 1em;
-        padding: 1em 0.5em;
+        padding: 1em 0.5em 1em 4em;
         width: 100%;
         background-color: #1c2b3c;
         background: #16212E;
-        text-align: center;
+        text-align: left;
         margin-bottom: 1em;
         text-decoration: none;
-        /* border: 3px solid #fff; */
+        position: relative;
+        transition: all 0.25s;
+    }
+    .sidebar a:hover {
+        background-color: #1F2F42;
+    }
+    .sidebar a:hover svg {
+        color: #fff;
+    }
+    .sidebar a::before {
+        content: "";
+        left: 0;
+        top: 0;
+        background-color: #fecb56;
+        width: 36px;
+        height: 50px;
+        position: absolute;
+
+    }   
+    .sidebar a::after {
+        content: "";
+        left: 36px;
+        top: 0;
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 50px 25px 0 0;
+        border-color: #fecb56 transparent transparent transparent;
+    }
+    .sidebar a svg { 
+        position: absolute;
+        top: calc(25px - 8px);
+        left: 10px;
+        color: #000;
+        transition: all 0.25s;
     }
 
 </style>

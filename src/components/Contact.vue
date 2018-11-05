@@ -20,7 +20,7 @@
                     <label class="label" for="message">Message</label>
                     <textarea id="message" v-model="message"></textarea>
                 </div>  
-                <button type="submit" v-on:click="submit"><i class="fa fa-envelope"></i>Send it</button>
+                <button class="btn" type="button" v-on:click="submit"><i class="fa fa-envelope"></i>Send it</button>
             </form>
         </section>
     </div>
@@ -33,11 +33,10 @@ export default {
         submit: function(e) {
             // considering starting an animation here and end it/transition it into another animation in the then or catch function
             console.log(e.target);
-            e.target.classList.add("error");
+            e.target.classList.add("sending");
             e.target.innerHTML = "<i class='fa fa-envelope'></i>Sending...";
-            console.log('attempting to send');
             // Submit form data to cloud function end point
-            /*Axios.post('https://europe-west1-cbpor2.cloudfunctions.net/addMessage', {
+            Axios.post('https://europe-west1-cbpor2.cloudfunctions.net/addMessage', {
                 name: message.value,
                 email: email.value,
                 subject: subject.value,
@@ -45,13 +44,16 @@ export default {
             })
             // process response
             .then((res) => {
-                console.log(res);
+                e.target.classList.remove("sending");
+                e.target.classList.add("success");
+                e.target.innerHTML = "<i class='fa fa-envelope'></i>Sent!";
             })
             // process error
             .catch((err) => {
-                console.log(err);
+                e.target.classList.remove("sending");
+                e.target.classList.add("error");
+                e.target.innerHTML = "<i class='fa fa-envelope'></i>Error sending!";
             });
-            console.log(email.value);*/
         }   
     }
 };
@@ -100,40 +102,15 @@ export default {
         max-height: 250px;
         max-width: 100%;
     }
-    section.form form button {
-        background-color: transparent;
-        border: 2px solid #fecb56;
+    section.form form button.btn {
+        width: 200px;
+        padding-left: 4.5em;
         cursor: pointer;
-        font-size: 1.2em;
-        padding: 0.25em 0.75em 0.25em 3em;
-        position: relative;
-        transition: all 0.25s ease-in-out;
     }
-    section.form form button::before {
-        background-color: #fecb56;
-        content: "";
-        width: 36px;
-        height: 36px;
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        transition: all 0.25s ease-in-out;
-    }
-    section.form form button::after {
-        content: "";
-        position: absolute;
-        top: -2px;
-        left: 33px;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 35px 20px 0 0;
-        border-color: #fecb56 transparent transparent transparent;
-        transition: all 0.25s ease-in-out;
-    }
-    section.form form button.loading {
+    section.form form button.sending {
         border-color: #fff;
         background-color: #fff;
+        color: #000;
     }
     section.form form button.success,
     section.form form button.success:hover {
@@ -158,14 +135,14 @@ export default {
         border-color: #ee5253;
     }
     section.form form button svg.fa-envelope {
+        left: 15px;
         margin-right: 1em;
         position: absolute;
-        left: 6px;
-        top: 6px;
+        top: 15px;
     }
-    section.form form button:hover {
+   /* section.form form button:hover {
         background-color: #fecb56;
-    }
+    }*/
 
 
 </style>

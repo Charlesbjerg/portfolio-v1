@@ -23,9 +23,9 @@
         </div>
         <div class="col-lg-2 col-sm-3 sidebar">
             <h3>Project links</h3>
-            <a href="#" class="codepen-link"><i class="fab fa-codepen"></i>View on Codepen</a>
-            <a href="#" class="web-link"><i class="fas fa-link"></i>View Project</a>
-            <a href="#" class="github-link"><i class="fab fa-github-square"></i>View on Github</a>
+            <a href="#" class="btn codepen-link"><i class="fab fa-codepen"></i>View on Codepen</a>
+            <a href="#" class="btn web-link"><i class="fas fa-link"></i>View Project</a>
+            <a href="#" class="btn github-link"><i class="fab fa-github-square"></i>View on Github</a>
         </div>
     </section>
 </template>
@@ -54,7 +54,7 @@ export default {
         text-align: left;
     }
     .main-content article header {
-        background-image: url('/static/header.jpg');
+        background-image: url('/static/images/header.jpg');
         background-size: cover;
         background-position: center;
         width: 100%;
@@ -85,17 +85,13 @@ export default {
         text-decoration: underline;
         margin-bottom: 1em;
     }
-    .sidebar a {
-        font-size: 1em;
-        padding: 1em 0.5em 1em 4em;
-        width: 100%;
-        background-color: #1c2b3c;
-        background: #16212E;
-        text-align: left;
+    .sidebar .btn {
         margin-bottom: 1em;
-        text-decoration: none;
-        position: relative;
-        transition: all 0.25s;
+        width: 100%;
+    }
+    /* .sidebar a {
+        width: 100%;
+        margin-bottom: 1em;
     }
     .sidebar a:hover {
         background-color: #1F2F42;
@@ -130,6 +126,6 @@ export default {
         left: 10px;
         color: #000;
         transition: all 0.25s;
-    }
+    } */
 
 </style>

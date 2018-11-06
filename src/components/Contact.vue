@@ -27,32 +27,35 @@
 </template>
 
 <script>
-import Axios from 'axios';
+import Ajax from '../ajax.js';
 export default {
     methods: {
         submit: function(e) {
             // considering starting an animation here and end it/transition it into another animation in the then or catch function
-            console.log(e.target);
             e.target.classList.add("sending");
             e.target.innerHTML = "<i class='fa fa-envelope'></i>Sending...";
-            // Submit form data to cloud function end point
-            Axios.post('https://europe-west1-cbpor2.cloudfunctions.net/addMessage', {
+
+            // build data object
+            let data = {
                 name: message.value,
                 email: email.value,
                 subject: subject.value,
                 message: message.value
-            })
-            // process response
-            .then((res) => {
-                e.target.classList.remove("sending");
-                e.target.classList.add("success");
-                e.target.innerHTML = "<i class='fa fa-envelope'></i>Sent!";
-            })
-            // process error
-            .catch((err) => {
-                e.target.classList.remove("sending");
-                e.target.classList.add("error");
-                e.target.innerHTML = "<i class='fa fa-envelope'></i>Error sending!";
+            };
+
+            // Submit form data to cloud function end point
+            Ajax.postContactForm(data)
+                .then(res => {
+                    console.log(res);
+                    if (res.status == '200') {
+                        e.target.classList.remove("sending");
+                        e.target.classList.add("success");
+                        e.target.innerHTML = "<i class='fa fa-envelope'></i>Sent!";
+                    } else {
+                        e.target.classList.remove("sending");
+                        e.target.classList.add("error");
+                        e.target.innerHTML = "<i class='fa fa-envelope'></i>Error sending!";
+                    }
             });
         }   
     }
@@ -134,6 +137,11 @@ export default {
     section.form form button.error::after {
         border-color: #ee5253;
     }
+    section.form form button.success svg,
+    section.form form button.success:hover svg {
+        color: #fff;
+    }
+
     section.form form button svg.fa-envelope {
         left: 15px;
         margin-right: 1em;

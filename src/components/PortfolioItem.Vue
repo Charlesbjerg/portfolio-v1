@@ -32,14 +32,13 @@
 
 <script>
 export default {
-    
+  watch: {
+      '$route': 'fetchData'
+  }  
 }
 </script>
 
-<style scoped>
-    section {
-        height: 100%;
-    }
+<style>
     .main-content {
         text-align: right;
         padding: 1em 3em;
@@ -64,7 +63,7 @@ export default {
         background-color: #fff;
         color: #000;
         padding: 1em 2em;
-        overflow-y: scroll;
+        overflow-y: auto;
         max-height: 450px;
     }
     .main-content article .article-content p {
@@ -79,7 +78,6 @@ export default {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        /* padding:   0; */
     }
     .sidebar h3 {
         text-decoration: underline;
@@ -89,43 +87,4 @@ export default {
         margin-bottom: 1em;
         width: 100%;
     }
-    /* .sidebar a {
-        width: 100%;
-        margin-bottom: 1em;
-    }
-    .sidebar a:hover {
-        background-color: #1F2F42;
-    }
-    .sidebar a:hover svg {
-        color: #fff;
-    }
-    .sidebar a::before {
-        content: "";
-        left: 0;
-        top: 0;
-        background-color: #fecb56;
-        width: 36px;
-        height: 50px;
-        position: absolute;
-
-    }   
-    .sidebar a::after {
-        content: "";
-        left: 36px;
-        top: 0;
-        position: absolute;
-        width: 0px;
-        height: 0px;
-        border-style: solid;
-        border-width: 50px 25px 0 0;
-        border-color: #fecb56 transparent transparent transparent;
-    }
-    .sidebar a svg { 
-        position: absolute;
-        top: calc(25px - 8px);
-        left: 10px;
-        color: #000;
-        transition: all 0.25s;
-    } */
-
 </style>

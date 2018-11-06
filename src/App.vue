@@ -73,6 +73,12 @@ export default {
 }
 #app nav section.main a {
   margin-bottom: 0.75em;
+  opacity: 0.8;
+  transition: all 0.25s ease-in-out;
+}
+#app nav section.main a:hover {
+  opacity: 1;
+  transform: translateY(-5px);
 }
 #app nav section.main a:last-child {
   margin-bottom: 0;

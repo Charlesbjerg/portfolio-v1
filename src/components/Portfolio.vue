@@ -6,8 +6,27 @@
 </template>
 
 <script>
+import Ajax from '../ajax';
 export default {
-    
+    data() {
+        return {
+            loading: false,
+            posts: [],
+            error: null
+        };
+    },
+    created() {
+        this.getPosts();
+    },
+    methods: {
+        getPosts() {
+            this.error = this.post = null;
+            this.loading = true;
+            Ajax.getPosts((err, post) => {
+                
+            });
+        }
+    }
 }
 </script>
 

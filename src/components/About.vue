@@ -39,7 +39,7 @@ export default {
         text-align: left;
     }
     .main-content article header {
-        background-image: url('/static/about-head-1.jpg');
+        background-image: url('/static/images/about-head-1.jpg');
         background-size: cover;
         background-position: center;
         width: 100%;
@@ -49,7 +49,7 @@ export default {
         background-color: #fff;
         color: #000;
         padding: 1em 2em;
-        overflow-y: scroll;
+        overflow-y: auto; 
         max-height: 450px;
     }
     .main-content article .article-content p {

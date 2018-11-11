@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import Ajax from '../ajax.js';
+import Axios from 'axios';
 export default {
     methods: {
         submit: function(e) {
@@ -44,7 +44,7 @@ export default {
             };
 
             // Submit form data to cloud function end point
-            Ajax.postContactForm(data)
+            Axios.post('https://europe-west1-cbpor2.cloudfunctions.net/addMessage', data)
                 .then(res => {
                     console.log(res);
                     if (res.status == '200') {

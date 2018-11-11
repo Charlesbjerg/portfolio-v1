@@ -4,11 +4,17 @@
 // Vue setup
 import Vue from 'vue'
 import router from './router'
-Vue.config.productionTip = false
+import StoryblokClient from 'storyblok-js-client';
+import StoryblokVue from 'storyblok-vue';
 
+// Vue production setting
+Vue.config.productionTip = false
 
 // Component imports
 import App from './App'
+
+// Vue use statements
+Vue.use(StoryblokVue);
 
 // Create Vue
 new Vue({

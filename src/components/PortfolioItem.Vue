@@ -31,10 +31,24 @@
 </template>
 
 <script>
+import Ajax from '../ajax';
 export default {
-  watch: {
-      '$route': 'fetchData'
-  }  
+    data() {    
+        return {
+            data: []
+        };
+    },
+    beforeRouteEnter(to, from, next) {
+        Ajax.getPost(to.params.id, (postData) => {
+            console.log(postData);
+            next(vm => vm.setData(postData));
+        });
+    },
+    methods: {
+        setData(postData) {
+            this.data = postData;
+        }
+    }
 }
 </script>
 

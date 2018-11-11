@@ -9,6 +9,7 @@
         <router-link class="link" to="/about"><i class="i i-about"></i>About</router-link>
         <router-link class="link" to="/portfolio"><i class="i i-portfolio"></i>My Work</router-link>
         <router-link class="link" to="/contact"><i class="i i-contact"></i>Contact</router-link>
+        <router-link class="link" to="/api-test">API Test</router-link>
       </section>
       <section class="bottom">
         <span><i class="i i-info"></i></span>

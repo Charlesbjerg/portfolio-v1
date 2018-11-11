@@ -19,7 +19,8 @@ export default {
     },
     getPost(id) {
         return Axios.get(baseURL + "/posts/" + id).then(res => {
-          return res.data;
+            console.log(`request sent, response returned: ${res}`);
+            return res.data;
         });
     }
 }

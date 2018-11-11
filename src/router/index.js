@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Portfolio from "@/components/Portfolio";
 import PortfolioItem from '@/components/PortfolioItem'
+import ApiTest from '@/components/api-test'
 
 Vue.use(Router)
 
@@ -14,6 +15,7 @@ export default new Router({
     { path: '/about', name: 'About', component: About },
     { path: '/contact', name: 'Contact', component: Contact },
     { path: '/portfolio', name: 'Portfolio', component: Portfolio },
-    { path: '/portfolio-item', name: 'PortfolioItem', component: PortfolioItem }
+    { path: '/portfolio-item/:id', name: 'PortfolioItem', component: PortfolioItem },
+    { path: '/api-test', name: 'ApiTest', component: ApiTest }
   ]
 })

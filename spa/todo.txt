@@ -1,0 +1,9 @@
+Make filters work
+Come up with some way off making the menu work on mobile
+Add some actual content
+Create a design shot if i've got time
+Maybe add a photography filter?
+Make the tooltip show something
+Bundle into theme
+Create on server and upload theme
+Setup domain to point to correct IP on digital ocean

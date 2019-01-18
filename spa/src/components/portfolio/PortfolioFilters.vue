@@ -34,7 +34,7 @@ export default {
     methods: {
         getCategories(route = 'categories', ver = 'wp/v2') {
             // Base URL to wp api
-            const fetchURL = "http://localhost/wp-json";
+            const fetchURL = "http://charlesbjerg.com/wp-json";
 
             // Fields to be returned by API
             const fields = "id,name";

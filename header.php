@@ -14,10 +14,10 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="google-site-verification" content="SkVGIVwsiJg5P6PRZuO_6I2B59KzktZJTUWQN4oFjiE" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
-
+	<meta name="google-site-verification" content="SkVGIVwsiJg5P6PRZuO_6I2B59KzktZJTUWQN4oFjiE" />
+  	<meta name="description" content="The web developer portfolio for Charlie Underhill, specialising in PHP development. See what work he's done." />
+	<title>Charlie Underhill - Developer Portfolio</title>
 	<?php wp_head(); ?>
 </head>
 

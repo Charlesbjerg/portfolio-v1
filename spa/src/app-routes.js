@@ -3,8 +3,8 @@ import Router from 'vue-router';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import About from './components/About';
-import Portfolio from './components/portfolio/Portfolio';
-import PortfolioPost from './components/portfolio/PortfolioPost';
+import Portfolio from './components/Portfolio/Portfolio';
+import PortfolioPost from './components/Portfolio/PortfolioPost';
 
 const appPath = `/${wpData.app_path}`;
 
@@ -16,7 +16,7 @@ Vue.use( Router );
  */
 export default new Router({
 	base: appPath, // path of the SPA relative to the domain.
-	mode: 'hash', // or "history"
+	mode: 'history', // or "history"
 	linkExactActiveClass: 'active-link',
 	routes: [
 		{

@@ -101,7 +101,9 @@ div.filters-container h2 {
     }
     .posts-container h1 {
         font-size: 2em;
-        margin: 0.75em 0 !important;
+        padding-left: 1rem;
+        margin: 1em 0 !important;
+        text-align: left !important;
     }
     .mobile-filters {
         display: block;

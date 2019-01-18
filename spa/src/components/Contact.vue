@@ -3,13 +3,6 @@
         <section class="col-md-offset-5 col-md-7 col-sm-offset-2 col-sm-10 col-xs-12 form">
             <h1>Get in touch</h1>
             <form>
-                <h3>Other Platforms</h3>
-                <div class="socials">
-                    <a href="https://github.com/charlesbjerg"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/charlesbjerg"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://instagram.com/charlesbjerg_"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:charlie@charlesbjerg.com"><i class="fa fa-envelope"></i></a>
-                </div>
                 <p>Need a site designing or developing? Want to hire me? Or do you just have something you want to share with me? Send me a message!</p>
                 <div class="field">
                   <label class="label" for="name">Full Name</label>
@@ -82,29 +75,8 @@ export default {
         background-color: #fff;
         padding: 2em;
     }   
-    section.form form {
+    section.form form p {
         color: #000;
-    }
-    section.form form h3 {
-        margin-bottom: 0.25em;
-        margin-top: 0;
-    }
-    section.form form div.socials {
-        display: flex;
-        align-content: center;
-    }
-    section.form form div.socials a {
-        margin-right: 0.5em;
-        margin-top: 0.5em;
-    }
-    section.form form div.socials a svg {
-        color: #000;
-        height: 32px;
-        width: 32px;
-        transition: 0.25s ease-in-out;
-    } 
-    section.form form div.socials a:hover svg {
-        color: #fecb56;
     }
     section.form form div.field {
         display: block;
@@ -130,7 +102,7 @@ export default {
         width: 100%;
     }
     section.form form div.field textarea {
-        height: 130px;
+        height: 175px;
         max-height: 250px;
         max-width: 100%;
     }
@@ -178,18 +150,6 @@ export default {
         top: 15px;
     }
    @media screen and (max-width: 500px) {
-       div.main-content {
-           padding: 1em;
-       }
-       section.form form h3 {
-           text-align: right;   
-       }
-       section.form form div.socials {
-           justify-content: flex-end;
-       }
-       section.form form div.socials a {
-           margin-left: 0.5em;
-       }
        section.form form button.btn {
            width: 100%;
            display: block;

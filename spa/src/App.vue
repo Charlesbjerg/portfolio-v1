@@ -16,7 +16,7 @@
       </section> -->
     </nav>
     <keep-alive>
-      <transition name="component-fade" mode="out-in">
+      <transition name="fade" mode="out-in">
         <router-view id="main"></router-view>
       </transition>
     </keep-alive>
@@ -26,14 +26,30 @@
 
 <script>
 export default {
+  // TODO: Need to implement some kind of fetch function that gets the cached json data 
+  // when the app is loaded, as it's unlikely there will be any content changes while a user is browsing
+  // Can then read from the cached file instead of making more ajax calls
+
   data() {
     return {
       menuOpen: false,
       nav: document.getElementById('nav'),
-      navBtn: document.getElementById('navBtn')
-      
+      navBtn: document.getElementById('navBtn'),
+      wpData: {}
     };
   },
+  watch: {
+    $route (to, from) {
+      // this will be triggered when the route changes
+      // Need to trigger some kind of function that deals with animation
+      // Add the function to methods
+      // Always call next()
+      next();
+    }
+  },
+  created: function() {
+
+  }
   methods: {
     menu() {
       let navArrow = document.getElementById('arrow');
@@ -54,10 +70,17 @@ export default {
         // set menu open true
         this.menuOpen = true;
       }
+    },
+    viewChange() {
+      // TODO: Implement viewChange functionn
+      // event is fired by route watcher
+      // need to animate something
+      // A big box to just swipe across the page
+      // Need to delay the page change until the box covers the page
+      // then change content
     }
-  }
+  },
 }
-
 
 </script>
 

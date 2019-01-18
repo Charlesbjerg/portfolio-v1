@@ -5,12 +5,12 @@
                     <div class="bg-square"></div>
                     <div class="fg-square"></div>
                     <div class="code-img">
-                        <img src="http://dev.wordpress/wp-content/themes/vue-portfolio-theme/assets/icons/idea.png" alt="Light bulb code icon" />
+                        <img src="http://localhost/wp-content/themes/vue-portfolio-theme/assets/icons/idea.png" alt="Light bulb code icon" />
                     </div>
                 </figure>
         </div>
         <div class="col-md-6 main-content">
-            <h1>Hey, I'm Charlie. A web developer from Gloucestershire<!--<span class="cursor"></span>--></h1>
+            <h1>Hey, I'm Charlie. A full-stack web developer from Gloucestershire<!--<span class="cursor"></span>--></h1>
             <div>
                 <router-link to='/about'>Find out all about me -></router-link>
             </div>

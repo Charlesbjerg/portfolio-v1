@@ -64,8 +64,11 @@ export default {
             // Amount of posts to be returned
             const slug = this.slug;
 
+            console.log(slug);
+
             // build URL for API Request
             let request = `${fetchURL}/${ver}/${route}?slug=${slug}&_fields=${fields}`;
+            console.log(request);
 
             // Send request with Axios
             Axios.get(request)

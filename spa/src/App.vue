@@ -29,28 +29,6 @@ export default {
       wpData: {}
     };
   },
-  watch: {
-    '$route' (to, from) {
-      // this will be triggered when the route changes
-      // Need to trigger some kind of function that deals with animation
-      // Add the function to methods
-      console.log('Route changed');
-    }
-  },
-  created: function() {
-    // TODO: Use this to fetch json file of all required WP data
-    console.log('Created');
-  },
-  beforeRouteEnter (to, from, next) {
-    console.log('Before route enter');
-    let swipe = document.getElementById('swipe'); 
-    swipe.classList.add('animate-swipe');
-      setTimeout(function() {
-        swipe.classList.remove('animate-swipe');
-      }, 2000); 
-
-    next(true);
-  },
   methods: {
     menu() {
       let navArrow = document.getElementById('arrow');

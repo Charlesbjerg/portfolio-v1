@@ -2,16 +2,14 @@
     <!-- Only displays the content if isAvailable -->
     <section v-if="isAvailable">
     <!-- Displays portfolio post for each post -->
-        <!-- <transition-group name="custom-classes-transition" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in" -->
-            <transition-group name="flip-list"
-                          tag="div"
-                          class="row"
-                          id="posts">
+        <transition-group name="flip-list"
+                      tag="div"
+                      class="row"
+                      id="posts">
             <PortfolioPostLink v-for="post in posts"
                         v-bind:key="post.slug"
                         :post="post"
                         class="col-xs-12 col-md-6 col-lg-4"/>
-          <router-view id="main"/>
         </transition-group>
 
     </section>
@@ -64,7 +62,7 @@ export default {
         fetchData() {
             if (0 < this.fetchNow) {
                 this.getPosts(this.route);
-                this.ApiResponse = 'Loading this shit';
+                this.ApiResponse = 'Loading content';
             }       
         },
         getPosts(route = 'posts', ver = 'wp/v2') {
@@ -90,11 +88,11 @@ export default {
                     this.posts = response.data;
                     // Set this.isAvailable to true and this.apiResponse to an empty string
                     this.isAvailable = true;
-                    this.ApiResponse = 'This shit should be fully loaded';
+                    this.ApiResponse = 'Content Loaded';
                     console.log(response.data);
                 })
                 .catch((error) => {
-                    this.ApiResponse = "Big time fail, maybe next time though.";
+                    this.ApiResponse = "Failed to load";
                     console.log(error); // Remove in production environment
                 });
         },

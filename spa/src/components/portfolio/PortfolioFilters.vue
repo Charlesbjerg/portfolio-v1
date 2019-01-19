@@ -79,7 +79,7 @@ export default {
             this.filter = event.target;
         }
     }
-}
+};
 </script>
 
 <style>

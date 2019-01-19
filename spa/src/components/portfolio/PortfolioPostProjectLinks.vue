@@ -14,7 +14,7 @@ export default {
             default: {}
         }
     }
-}
+};
 </script>
 <style>
     a.btn {

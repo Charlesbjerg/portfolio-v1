@@ -10,11 +10,11 @@
                 <p>Send me a message on <a href="https://www.linkedin.com/in/charlesbjerg/">linkedin</a>!</p>   
                 <h2>Find me on other platforms</h2>
                 <div class="socials">
-                    <a href="https://twitter.com/charlesbjerg">Twitter <i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com/charlesbjerg">Instagram <i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/charlesbjerg">Github <i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/charlesbjerg">Linkedin <i class="fab fa-linkedin"></i></a>
                     <a href="https://www.flickr.com/people/136767133@N08/">Flickr <i class="fab fa-flickr"></i></a>
-                    <a href="https://github.com/charlesbjerg">Github <i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/charlesbjerg">Twitter <i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/charlesbjerg">Instagram <i class="fab fa-instagram"></i></a>
                 </div>
             </article>
         </section>

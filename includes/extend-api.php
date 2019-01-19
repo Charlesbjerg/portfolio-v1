@@ -53,9 +53,16 @@ function vue_get_post_meta_fields( $post_object, $field_name, $request ) {
 	// add categories, custom excerpt, featured image to the api response.
 	$img_id  = get_post_thumbnail_id( $post_id );
 	$img_alt = get_post_meta( $img_id,'_wp_attachment_image_alt', true );
+	
+	if (isset($post_object['excerpt'])) {
+		$excerpt = $post_object['excerpt']['rendered'];
+	} else {
+		$excerpt = get_the_excerpt();
+	}
+
 	$additional_post_data = array(
 		'custom_excerpt' => wp_trim_words(
-			$post_object['excerpt']['rendered'],
+			$excerpt,
 			25,
 			' &hellip;'
 		),

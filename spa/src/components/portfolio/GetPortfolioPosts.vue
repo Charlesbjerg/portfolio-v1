@@ -2,16 +2,18 @@
     <!-- Only displays the content if isAvailable -->
     <section v-if="isAvailable">
     <!-- Displays portfolio post for each post -->
-        <transition-group
+        <!-- <transition-group name="custom-classes-transition" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in" -->
+            <transition-group name="flip-list"
                           tag="div"
                           class="row"
                           id="posts">
             <PortfolioPostLink v-for="post in posts"
                         v-bind:key="post.slug"
                         :post="post"
-                        class="col-xs-12 col-md-6 col-lg-4">
-            </PortfolioPostLink>
+                        class="col-xs-12 col-md-6 col-lg-4"/>
+          <router-view id="main"/>
         </transition-group>
+
     </section>
 </template>
 <script>
@@ -79,6 +81,8 @@ export default {
             // build URL for API Request
             let request = `${fetchURL}/${ver}/${route}?per_page=${numPosts}&_fields=${fields}`;
 
+            console.log(request);
+
             // Send request with Axios
             Axios.get(request)
                 .then((response) => {
@@ -87,6 +91,7 @@ export default {
                     // Set this.isAvailable to true and this.apiResponse to an empty string
                     this.isAvailable = true;
                     this.ApiResponse = 'This shit should be fully loaded';
+                    console.log(response.data);
                 })
                 .catch((error) => {
                     this.ApiResponse = "Big time fail, maybe next time though.";
@@ -103,15 +108,19 @@ export default {
 
             console.log("It's running");
 
-            const fetchURL = this.wpData.rest_url;
+            // const fetchURL = this.wpData.rest_url;
+            const fetchURL = 'http://dev.wordpress/wp-json';
             const fields = "slug,title,acf,vue_meta";
             const numPosts = 6;
             const catId = id;
 
             let request = `${fetchURL}/${ver}/${route}?categories=${catId}&per_page=${numPosts}&_fields=${fields}`;
 
+            console.log(request);
+
             Axios.get(request)
                 .then((response) => {
+
                     this.posts = response.data;
                     this.ApiResponse = 'Content loaded';
                     this.isAvailable = true;
@@ -123,14 +132,14 @@ export default {
 
                 })
                 .catch((error) => {
-                    this.ApiResponse = 'Content failed ot load';
+                    this.ApiResponse = 'Content failed to load';
                     this.isAvailable = false;
                     console.log(error);
             });
         }
     }
 
-}
+};
 </script>
 <style>
 section.main-content {

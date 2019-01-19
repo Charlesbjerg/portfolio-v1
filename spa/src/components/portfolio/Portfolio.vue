@@ -39,7 +39,7 @@ export default {
             posts: []
         };
     }
-}
+};
 </script>
 <style scoped>
 #main {

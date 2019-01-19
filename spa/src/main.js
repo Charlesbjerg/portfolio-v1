@@ -2,9 +2,8 @@ import Vue from 'vue';
 import App from './App';
 import router from './app-routes';
 
-/**
- * Mount the Vue instance on the DOM element "#wp-vue-app" in the Custom Page Template
- */
+// Add vue animate.css library 
+require('vue2-animate/dist/vue2-animate.min.css');
 
 // Init event bus
 export const filterBus = new Vue();

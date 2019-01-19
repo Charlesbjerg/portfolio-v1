@@ -1,5 +1,5 @@
 <template>
-    <div class="row center-content">
+    <section class="row center-content">
         <div class="col-sm-6 animated-item center-content">
             <figure class="logo">
                     <div class="bg-square"></div>
@@ -15,7 +15,7 @@
                 <router-link to='/about'>Find out all about me -></router-link>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 <style scoped>
     .animated-item {

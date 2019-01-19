@@ -1,26 +1,20 @@
 <template>
 
   <div id="app">
-    <div class="main-wrapper" id="mainWrapper">
       <button id="navBtn" class="menu" @click="this.menu"><i id="arrow" class="fa fa-arrow-left fa-1x"></i></button>
       <nav id="nav">
-        <!-- <section class="top">
-        </section> -->
         <section class="main">
-          <router-link class="link" v-on:click.native="viewChange" to="/"><i class="i i-home"></i>Home</router-link>
-          <router-link class="link" v-on:click.native="viewChange" to="/about"><i class="i i-about"></i>About</router-link>
-          <router-link class="link" v-on:click.native="viewChange" to="/portfolio"><i class="i i-portfolio"></i>My Work</router-link>
-          <router-link class="link" v-on:click.native="viewChange" to="/contact"><i class="i i-contact"></i>Contact</router-link>
+          <router-link class="link" to="/"><i class="i i-home"></i>Home</router-link>
+          <router-link class="link" to="/about"><i class="i i-about"></i>About</router-link>
+          <router-link class="link" to="/portfolio"><i class="i i-portfolio"></i>My Work</router-link>
+          <router-link class="link" to="/contact"><i class="i i-contact"></i>Contact</router-link>
         </section>
-        <!-- <section class="bottom">
-          <span><i class="i i-info"></i></span>
-        </section> -->
       </nav>
       <keep-alive>
-          <router-view id="main"></router-view>
+        <transition name="custom-classes-transition" enter-active-class="animated slideInUp" leave-active-class="animated slideOutRight" mode="out-in">
+          <router-view id="main"/>
+        </transition>
       </keep-alive>
-    </div>
-    <div id="swipe" class="swipe-block"></div>
   </div>
 
 </template>
@@ -78,20 +72,8 @@ export default {
         this.menuOpen = true;
       }
     },
-    viewChange() {
-      console.log('ViewChange');
-      // Add class .animate-swipe to element
-      let swipe = document.getElementById('swipe');
-      let mainWrapper = document.getElementById('mainWrapper');
-      mainWrapper.style.opacity = 0;
-      swipe.classList.add('animate-swipe');
-      setTimeout(function() {
-        swipe.classList.remove('animate-swipe');
-      }, 2000); 
-    }
   },
-} 
-
+}; 
 </script>
 
 
@@ -102,9 +84,6 @@ export default {
   position: relative;
   height: 100vh;
   width: calc(100vw - 85px);
-  display: flex;
-  align-items: center;
-  position: relative;
 }
 #app button.menu {
   display: none;
@@ -183,7 +162,7 @@ div.swipe-block.animate-swipe {
   transform: translateX(-100%);
 }
 #main {
-  height: auto;
+  /*height: auto;*/
   width: 100%;
 }
 @media screen and (max-width: 768px) {
@@ -224,4 +203,5 @@ div.swipe-block.animate-swipe {
     right: -95px;
   }
 }
+
 </style>

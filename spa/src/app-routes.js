@@ -16,7 +16,7 @@ Vue.use( Router );
  */
 export default new Router({
 	base: appPath, // path of the SPA relative to the domain.
-	mode: 'history', // or "history"
+	//mode: 'history', // or "history"
 	linkExactActiveClass: 'active-link',
 	routes: [
 		{

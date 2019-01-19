@@ -1,35 +1,32 @@
 <template>
 
   <div id="app">
-    <button id="navBtn" class="menu" @click="this.menu"><i id="arrow" class="fa fa-arrow-left fa-1x"></i></button>
-    <nav id="nav">
-      <!-- <section class="top">
-      </section> -->
-      <section class="main">
-        <router-link class="link" to="/"><i class="i i-home"></i>Home</router-link>
-        <router-link class="link" to="/about"><i class="i i-about"></i>About</router-link>
-        <router-link class="link" to="/portfolio"><i class="i i-portfolio"></i>My Work</router-link>
-        <router-link class="link" to="/contact"><i class="i i-contact"></i>Contact</router-link>
-      </section>
-      <!-- <section class="bottom">
-        <span><i class="i i-info"></i></span>
-      </section> -->
-    </nav>
-    <keep-alive>
-      <transition name="fade" mode="out-in">
-        <router-view id="main"></router-view>
-      </transition>
-    </keep-alive>
+    <div class="main-wrapper" id="mainWrapper">
+      <button id="navBtn" class="menu" @click="this.menu"><i id="arrow" class="fa fa-arrow-left fa-1x"></i></button>
+      <nav id="nav">
+        <!-- <section class="top">
+        </section> -->
+        <section class="main">
+          <router-link class="link" v-on:click.native="viewChange" to="/"><i class="i i-home"></i>Home</router-link>
+          <router-link class="link" v-on:click.native="viewChange" to="/about"><i class="i i-about"></i>About</router-link>
+          <router-link class="link" v-on:click.native="viewChange" to="/portfolio"><i class="i i-portfolio"></i>My Work</router-link>
+          <router-link class="link" v-on:click.native="viewChange" to="/contact"><i class="i i-contact"></i>Contact</router-link>
+        </section>
+        <!-- <section class="bottom">
+          <span><i class="i i-info"></i></span>
+        </section> -->
+      </nav>
+      <keep-alive>
+          <router-view id="main"></router-view>
+      </keep-alive>
+    </div>
+    <div id="swipe" class="swipe-block"></div>
   </div>
 
 </template>
 
 <script>
 export default {
-  // TODO: Need to implement some kind of fetch function that gets the cached json data 
-  // when the app is loaded, as it's unlikely there will be any content changes while a user is browsing
-  // Can then read from the cached file instead of making more ajax calls
-
   data() {
     return {
       menuOpen: false,
@@ -39,17 +36,27 @@ export default {
     };
   },
   watch: {
-    $route (to, from) {
+    '$route' (to, from) {
       // this will be triggered when the route changes
       // Need to trigger some kind of function that deals with animation
       // Add the function to methods
-      // Always call next()
-      next();
+      console.log('Route changed');
     }
   },
   created: function() {
+    // TODO: Use this to fetch json file of all required WP data
+    console.log('Created');
+  },
+  beforeRouteEnter (to, from, next) {
+    console.log('Before route enter');
+    let swipe = document.getElementById('swipe'); 
+    swipe.classList.add('animate-swipe');
+      setTimeout(function() {
+        swipe.classList.remove('animate-swipe');
+      }, 2000); 
 
-  }
+    next(true);
+  },
   methods: {
     menu() {
       let navArrow = document.getElementById('arrow');
@@ -72,15 +79,18 @@ export default {
       }
     },
     viewChange() {
-      // TODO: Implement viewChange functionn
-      // event is fired by route watcher
-      // need to animate something
-      // A big box to just swipe across the page
-      // Need to delay the page change until the box covers the page
-      // then change content
+      console.log('ViewChange');
+      // Add class .animate-swipe to element
+      let swipe = document.getElementById('swipe');
+      let mainWrapper = document.getElementById('mainWrapper');
+      mainWrapper.style.opacity = 0;
+      swipe.classList.add('animate-swipe');
+      setTimeout(function() {
+        swipe.classList.remove('animate-swipe');
+      }, 2000); 
     }
   },
-}
+} 
 
 </script>
 
@@ -94,6 +104,7 @@ export default {
   width: calc(100vw - 85px);
   display: flex;
   align-items: center;
+  position: relative;
 }
 #app button.menu {
   display: none;
@@ -106,7 +117,7 @@ export default {
   width: 85px;
   position: fixed;
   overflow-x: hidden;
-  z-index: 2;
+  z-index: 10;
   right: 0;
   top: 0px;
   background-color: #fecb56;
@@ -158,6 +169,18 @@ export default {
   color: #000;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 1em;
+}
+div.swipe-block {
+  position: absolute;
+  right: -100%;
+  width: 100vw;
+  height: 100vh;
+  background-color: #002A59;
+  z-index: 9;
+  transition: 2s ease;
+}
+div.swipe-block.animate-swipe {
+  transform: translateX(-100%);
 }
 #main {
   height: auto;

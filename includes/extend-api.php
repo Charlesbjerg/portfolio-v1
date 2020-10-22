@@ -39,16 +39,8 @@ function vue_get_post_meta_fields( $post_object, $field_name, $request ) {
 	$terms = array();
 	$term_links = array();
 
-	$post_id = $post_object['id']; // get the post id.
-	// foreach ( $post_object['categories'] as $category_id ) {
-	// 	$term_data = get_category( $category_id );
-	// 	$term_name = $term_data->category_nicename;
-	// 	$term_url = get_term_link( $term_data->name, $term_data->taxonomy );
-	// 	$term_link = "<a href=\"$term_url\">$term_name</a>";
-
-	// 	array_push( $terms, $term_name );
-	// 	array_push( $term_links, $term_link );
-	// }
+	// get the post id.
+	$post_id = $post_object['id']; 
 
 	// add categories, custom excerpt, featured image to the api response.
 	$img_id  = get_post_thumbnail_id( $post_id );
